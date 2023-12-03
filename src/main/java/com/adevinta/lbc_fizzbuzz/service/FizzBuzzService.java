@@ -1,5 +1,6 @@
 package com.adevinta.lbc_fizzbuzz.service;
 
+import com.adevinta.lbc_fizzbuzz.dto.StatisticsDto;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
@@ -7,6 +8,12 @@ import java.util.List;
 
 @Service
 public class FizzBuzzService {
+
+    StatisticsService statisticsService;
+
+    public FizzBuzzService(StatisticsService statisticsService) {
+        this.statisticsService = statisticsService;
+    }
 
     public List<String> generateFizzBuzz(int int1, int int2, int limit, String str1, String str2){
         String[] fizzBuzzResult = new String[limit];
@@ -29,6 +36,9 @@ public class FizzBuzzService {
                 fizzBuzzResult[i] = String.valueOf(i+1);
             }
         }
+        StatisticsDto dto = statisticsService.findCurrentFizzBuzzByParameters(int1, int2, limit, str1, str2);
+        dto.setCounter(dto.getCounter()+1);
+        statisticsService.saveFizzBuzz(dto);
 
         return Arrays.stream(fizzBuzzResult).toList();
     }
