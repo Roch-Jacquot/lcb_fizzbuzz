@@ -26,12 +26,12 @@ public class FizzBuzzController {
 
     /**
      * fizzBuzzCalculator generates the results to a fizzbuzz exercise
-     * @param int1: first divisor of the fizzbuzz
-     * @param int2: second divisor of the fizzbuzz
-     * @param limit: size of the list
-     * @param str1: value to use with int1
-     * @param str2: value to use with int2
-     * @return: List of string containing the fizzbuzz results
+     * @param int1 first divisor of the fizzbuzz
+     * @param int2 second divisor of the fizzbuzz
+     * @param limit size of the list
+     * @param str1 value to use with int1
+     * @param str2 value to use with int2
+     * @return List of string containing the fizzbuzz results
      */
     @GetMapping("/fizzbuzz")
     List<String> fizzBuzzCalculator(@RequestParam int int1, @RequestParam int int2, @RequestParam int limit,
@@ -42,7 +42,7 @@ public class FizzBuzzController {
 
     /**
      * fizzBuzzStatistics returns the most common fizzBuzz generated
-     * @return: FizzBuzzStatistics object containing the parameters of the most generated fizzbuzz
+     * @return FizzBuzzStatistics object containing the parameters of the most generated fizzbuzz
      */
     @GetMapping("/fizzbuzz/statistics")
     FizzBuzzStatistics fizzBuzzStatistics(){

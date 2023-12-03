@@ -18,11 +18,11 @@ public class FizzBuzzService {
 
     /**
      * generateAndRecordFizzBuzz builds a FizzBuzz list and records its parameters
-     * @param int1: first divisor of the fiz
-     * @param int2: second divisor of the fi
-     * @param limit: size of the list
-     * @param str1: value to use with int1
-     * @param str2: value to use with int2
+     * @param int1 first divisor of the fiz
+     * @param int2 second divisor of the fi
+     * @param limit size of the list
+     * @param str1 value to use with int1
+     * @param str2 value to use with int2
      * @return List of String made up of the FizzBuzz generated
      */
     public List<String> generateAndRecordFizzBuzz(int int1, int int2, int limit, String str1, String str2){
@@ -34,11 +34,11 @@ public class FizzBuzzService {
 
     /**
      * findAndIncrementStatistics finds the FizzBuzz saved in database or creates a new one then increments it
-     * @param int1: first divisor of the fiz
-     * @param int2: second divisor of the fi
-     * @param limit: size of the list
-     * @param str1: value to use with int1
-     * @param str2: value to use with int2
+     * @param int1 first divisor of the fiz
+     * @param int2 second divisor of the fi
+     * @param limit size of the list
+     * @param str1 value to use with int1
+     * @param str2 value to use with int2
      */
     private void findAndIncrementStatistics(int int1, int int2, int limit, String str1, String str2) {
         FizzBuzzStatisticsDto dto = statisticsService.findCurrentFizzBuzzByParameters(int1, int2, limit, str1, str2);
@@ -46,6 +46,15 @@ public class FizzBuzzService {
         statisticsService.saveFizzBuzz(dto);
     }
 
+    /**
+     * buildFizzBuzz builds a list of FizzBuzz results
+     * @param int1 first divisor of the fiz
+     * @param int2 second divisor of the fi
+     * @param limit size of the list
+     * @param str1 value to use with int1
+     * @param str2 value to use with int2
+     * @return String[] containing the resulting fizzbuzz values
+     */
     private String[] buildFizzBuzz(int int1, int int2, int limit, String str1, String str2) {
         String[] fizzBuzzResult = new String[limit];
         boolean indexDividesInt1;
