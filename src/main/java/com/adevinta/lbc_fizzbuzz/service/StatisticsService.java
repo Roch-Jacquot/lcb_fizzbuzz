@@ -1,6 +1,6 @@
 package com.adevinta.lbc_fizzbuzz.service;
 
-import com.adevinta.lbc_fizzbuzz.dto.StatisticsDto;
+import com.adevinta.lbc_fizzbuzz.dto.FizzBuzzStatisticsDto;
 import com.adevinta.lbc_fizzbuzz.model.FizzBuzzStatistics;
 import com.adevinta.lbc_fizzbuzz.repository.FizzBuzzRepository;
 import org.springframework.stereotype.Service;
@@ -15,16 +15,18 @@ public class StatisticsService {
     }
 
     public FizzBuzzStatistics findMostCommonFizzBuzz(){
-        StatisticsDto statisticsDto = fizzBuzzRepository.findTopByOrderByCounterDesc().orElseThrow();
-        FizzBuzzStatistics.fromStatisticsDto(statisticsDto);
-        return FizzBuzzStatistics.fromStatisticsDto(statisticsDto);
+        FizzBuzzStatisticsDto fizzBuzzStatisticsDto = fizzBuzzRepository.findTopByOrderByCounterDesc().orElseThrow();
+        FizzBuzzStatistics.fromStatisticsDto(fizzBuzzStatisticsDto);
+
+        return FizzBuzzStatistics.fromStatisticsDto(fizzBuzzStatisticsDto);
     }
-    public StatisticsDto findCurrentFizzBuzzByParameters(int int1, int int2, int limit, String str1, String str2){
+    public FizzBuzzStatisticsDto findCurrentFizzBuzzByParameters(int int1, int int2, int limit, String str1, String str2){
         return fizzBuzzRepository.findByFirstDivisorAndSecondDivisorAndSizeAndStr1AndStr2(int1, int2, limit, str1, str2)
-                .orElse(StatisticsDto.builder().firstDivisor(int1).secondDivisor(int2).size(limit).str1(str1).str2(str2).counter(0L).build());
+                .orElse(FizzBuzzStatisticsDto.builder().firstDivisor(int1).secondDivisor(int2)
+                        .size(limit).str1(str1).str2(str2).counter(0L).build());
     }
 
-    public void saveFizzBuzz(StatisticsDto dto){
+    public void saveFizzBuzz(FizzBuzzStatisticsDto dto){
         fizzBuzzRepository.save(dto);
     }
 

@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder()
 @Table(name = "statistics")
-public class StatisticsDto {
+public class FizzBuzzStatisticsDto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

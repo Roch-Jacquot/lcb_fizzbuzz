@@ -1,6 +1,6 @@
 package com.adevinta.lbc_fizzbuzz.model;
 
-import com.adevinta.lbc_fizzbuzz.dto.StatisticsDto;
+import com.adevinta.lbc_fizzbuzz.dto.FizzBuzzStatisticsDto;
 import lombok.Builder;
 import lombok.Data;
 
@@ -20,25 +20,18 @@ public class FizzBuzzStatistics {
 
     Long counter;
 
-
-
-    public static FizzBuzzStatistics fromStatisticsDto(StatisticsDto statisticsDto){
+    /**
+     * fromStatisticsDto takes a FizzBuzzStatisticsDto and build a FizzBuzzStatistics from it
+     * @param fizzBuzzStatisticsDto
+     * @return FizzBuzzStatistics
+     */
+    public static FizzBuzzStatistics fromStatisticsDto(FizzBuzzStatisticsDto fizzBuzzStatisticsDto){
         return FizzBuzzStatistics.builder()
-                .int1(statisticsDto.getFirstDivisor())
-                .int2(statisticsDto.getSecondDivisor())
-                .limit(statisticsDto.getSize())
-                .str1(statisticsDto.getStr1())
-                .str2(statisticsDto.getStr2())
-                .counter(statisticsDto.getCounter()).build();
-    }
-
-    public StatisticsDto toStatisticsDto(){
-        return StatisticsDto.builder()
-                .firstDivisor(this.int1)
-                .secondDivisor(this.int2)
-                .size(this.limit)
-                .str1(this.str1)
-                .str2(this.str2)
-                .counter(this.getCounter()).build();
+                .int1(fizzBuzzStatisticsDto.getFirstDivisor())
+                .int2(fizzBuzzStatisticsDto.getSecondDivisor())
+                .limit(fizzBuzzStatisticsDto.getSize())
+                .str1(fizzBuzzStatisticsDto.getStr1())
+                .str2(fizzBuzzStatisticsDto.getStr2())
+                .counter(fizzBuzzStatisticsDto.getCounter()).build();
     }
 }
