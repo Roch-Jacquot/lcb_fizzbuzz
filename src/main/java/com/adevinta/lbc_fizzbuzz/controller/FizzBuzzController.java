@@ -49,7 +49,7 @@ public class FizzBuzzController {
         try{
             return statisticsService.findMostCommonFizzBuzz();
         } catch(NoSuchElementException exception){
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No fizzbuzz statistics found", exception);
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No fizzbuzz statistics present in database", exception);
         }
     }
 }
