@@ -17,3 +17,8 @@ Alternatively
 - modify the application.properties of the project to include your mysql configs
 - build the project using maven from a terminal or ide (type: 'mvn clean package')
 - from a terminal or ide type: 'mvn spring-boot:run'
+
+# Routes
+Two routes have been developed.
+- /fizzbuzz It generates the requested fizzbuzz
+- /fizzbuzz/statistics It returns the most commonly requested fizzbuzz
